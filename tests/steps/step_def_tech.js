@@ -1,0 +1,2 @@
+// this def def uses env variables so we will need .sh or .bat for windows file, then we need a json data file,  we are not using 
+//a locator file here, but using functions to shorten the locators or xpath so on teh feature file we  use shorter locators.
