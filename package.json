@@ -1,0 +1,36 @@
+{
+  "name": "wdiov5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "selenium-server": "./node_modules/.bin/selenium-standalone start",
+    "test": "./node_modules/.bin/wdio wdio.conf.js",
+    "test1": "./node_modules/.bin/wdio cucumber.conf.js --suite=testE"
+  },
+  "author": "emma ng",
+  "license": "ISC",
+  "dependencies": {
+    "@wdio/cli": "^6.1.14",
+    "@wdio/selenium-standalone-service": "^6.1.14",
+    "Babel": "0.0.1",
+    "chai": "^4.2.0",
+    "cucumber": "^6.0.5",
+    "mocha": "^7.2.0",
+    "selenium-standalone": "^6.17.0",
+    "webdriver": "^6.1.14"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.1",
+    "@babel/preset-env": "^7.10.1",
+    "@babel/register": "^7.10.1",
+    "@wdio/cucumber-framework": "^6.1.14",
+    "@wdio/local-runner": "^6.1.14",
+    "@wdio/mocha-framework": "^6.1.14",
+    "@wdio/spec-reporter": "^6.1.14",
+    "@wdio/sync": "^6.1.14",
+    "chromedriver": "^83.0.0",
+    "wdio-chromedriver-service": "^6.0.3"
+  }
+}
