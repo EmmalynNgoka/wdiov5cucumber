@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'macOS-latest'
 
 steps:
 - task: NodeTool@0
@@ -17,5 +17,9 @@ steps:
 
 - script: |
     npm install
-    npm run build
+    npx wdio wdio.conf.js --suite=testE
   displayName: 'npm install and build'
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/TEST-*.xml'
