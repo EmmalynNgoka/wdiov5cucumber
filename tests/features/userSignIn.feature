@@ -7,8 +7,8 @@ Feature: userSignIn
     
     Given I open the url "/"
     And I select "signInText"
-    And I enter "enterEmailInSignIn" with <Email>
-    And I fill "enterPasswordSignIn" with <Password>
+    # And I enter "enterEmailInSignIn" with <Email>
+    # And I fill "enterPasswordSignIn" with <Password>
     # When I select "logInSignInIcon"
     # Then I expect "authenticationFailed" to be visible
 

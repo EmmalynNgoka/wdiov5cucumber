@@ -75,7 +75,7 @@ exports.config = {
         // 5 instances get started at a time.
         maxInstances: 5,
         //
-        browserName: 'chrome',
+        browserName: 'firefox',
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
@@ -88,7 +88,8 @@ exports.config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'info',
+    sync: true,
+    logLevel: 'silent',
     //
     // Set specific log levels per logger
     // loggers:
@@ -218,8 +219,15 @@ exports.config = {
         
     //     requireModule: ['@babel/register'],
     //     require: ['./test/helpers/common.js']
+    // before: function (capabilities, specs) {
+    //     require('@babel/register');
+    // },
     before: function (capabilities, specs) {
-        require('@babel/register');
+        const chai = require('chai');
+
+    global.expect = chai.expect;
+    global.assert = chai.assert;
+    global.should = chai.should();
     },
     /**
      * Runs before a WebdriverIO command gets executed.
@@ -243,6 +251,9 @@ exports.config = {
      */
     // beforeStep: function ({ uri, feature, step }, context) {
     // },
+    beforeScenario: function (scenario) {
+        browser.deleteCookie()
+    },
     /**
      * Runs after a Cucumber step
      */

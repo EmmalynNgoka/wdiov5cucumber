@@ -3,6 +3,7 @@ const { Given, When, Then, setDefaultTimeout } = require('cucumber');
 const expect = require('chai').expect;
 const locators = require('../locators/locators');
 const data = require('../data/data');
+const input = $('.input');
 
 
 Given(/^I open the url "([^"]+)"$/, function(urlToBeOpened){
@@ -36,7 +37,7 @@ When(/^I fill "([^"]+)" with "([^"]+)"$/, function(element,data){
     if(locators[element].includes('select')){
         browser.selectByValue(locators[element], data);
     } else {
-        browser.value(locators[element], data);
+        input.addValue(locators[element], data);
     }
 })
 When(/^I enter "([^"]+)" with "([^"]+)"$/, function(element,data){
@@ -44,8 +45,7 @@ When(/^I enter "([^"]+)" with "([^"]+)"$/, function(element,data){
     if(locators[element].includes('select')){
         browser.selectByValue(locators[element], data);
     } else {
-        browser.se
-        browser.value(locators[element], data);
+        input.addValue(locators[element], data);
     }
 })
 
