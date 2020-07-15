@@ -17,7 +17,7 @@ steps:
 
 - script: |
     npm install
-    npx wdio wdio.conf.js --suite=testE
+    npx wdio cucumber.conf.js --suite=testE
   displayName: 'npm install and build'
 - task: PublishTestResults@2
   inputs:
