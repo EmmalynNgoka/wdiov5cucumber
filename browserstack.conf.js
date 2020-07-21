@@ -74,10 +74,10 @@ exports.config = {
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
-        maxInstances: 1,
+        maxInstances: 5,
         //
-        browserName: 'chrome',
-        // "browserstack.debug": true,
+      //  browserName: 'firefox',
+        "browserstack.debug": true,
         // // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
@@ -105,7 +105,7 @@ exports.config = {
     // // logLevels: {
     // //     webdriver: 'info',
     // //     '@wdio/applitools-service': 'info'
-    // browserstackLocal: true,
+    browserstackLocal: true,
     // // },
     // //
     // If you only want to run your tests until a specific amount of tests have failed use
@@ -135,12 +135,11 @@ exports.config = {
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
     // services: ['selenium-standalone'],
-    services: ['selenium-standalone', 'v5-upgrade-helper'],
-    // services: ["browserstack"],
+    services: ["browserstack"],
     // //user: process.env.BROWSERSTACK_USER,
     // //key: process.env.BROWSERSTACK_ACCESSKEY,
-    // user: 'emmalyn1',
-    // key: 'szFP2pqLtHge4evNpFeX',
+    user: 'emmalyn1',
+    key: 'szFP2pqLtHge4evNpFeX',
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks.html
@@ -261,9 +260,9 @@ exports.config = {
      */
     // beforeStep: function ({ uri, feature, step }, context) {
     // },
-    // beforeScenario: function (scenario) {
-    //     browser.deleteCookie()
-    // },
+    beforeScenario: function (scenario) {
+        browser.deleteCookie()
+    },
     /**
      * Runs after a Cucumber step
      */

@@ -6,18 +6,24 @@
   "scripts": {
     "selenium-server": "./node_modules/.bin/selenium-standalone start",
     "test": "./node_modules/.bin/wdio wdio.conf.js",
-    "test1": "./node_modules/.bin/wdio cucumber.conf.js --suite=testE"
+    "test1": "./node_modules/.bin/wdio cucumber.conf.js --suite=testE",
+    "testBS": "./node_modules/.bin/wdio browserstack.conf.js --suite=testE",
+    "test2": "rm -rf reports/ && source env.pipeline.sh && ./node_modules/.bin/wdio cucumber.conf.js --spec ./tests/features/searchProduct.feature"
   },
   "author": "emma ng",
   "license": "ISC",
   "dependencies": {
+    "@wdio/browserstack-service": "^6.1.15",
     "@wdio/cli": "^6.1.14",
     "@wdio/selenium-standalone-service": "^6.1.14",
     "Babel": "0.0.1",
+    "bufferutil": "^4.0.1",
     "chai": "^4.2.0",
     "cucumber": "^6.0.5",
     "mocha": "^7.2.0",
     "selenium-standalone": "^6.17.0",
+    "utf-8-validate": "^5.0.2",
+    "wdio-v5-upgrade-helper-service": "^2.0.21",
     "webdriver": "^6.1.14"
   },
   "devDependencies": {

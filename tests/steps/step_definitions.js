@@ -3,6 +3,7 @@ const { Given, When, Then, setDefaultTimeout } = require('cucumber');
 const expect = require('chai').expect;
 const locators = require('../locators/locators');
 const data = require('../data/data');
+const cucumberConfig = require('../../cucumber.conf').config;
 const input = $('.input');
 
 
@@ -14,6 +15,14 @@ Given(/^I open the url "([^"]+)"$/, function(urlToBeOpened){
         });
         return readyState.value === 'complete';
     }, 60000, "Unforeseen error while loading the URL", 3000);
+});
+
+Given('I navigate to website URL', function () {
+    browser.url(cucumberConfig.baseUrl)
+
+    browser.waitUntil(() => {
+        return browser.isVisible('#bot-messages')
+    })
 });
 
 
@@ -37,7 +46,7 @@ When(/^I fill "([^"]+)" with "([^"]+)"$/, function(element,data){
     if(locators[element].includes('select')){
         browser.selectByValue(locators[element], data);
     } else {
-        input.addValue(locators[element], data);
+        browser.setValue(locators[element], data);
     }
 })
 When(/^I enter "([^"]+)" with "([^"]+)"$/, function(element,data){
@@ -45,7 +54,7 @@ When(/^I enter "([^"]+)" with "([^"]+)"$/, function(element,data){
     if(locators[element].includes('select')){
         browser.selectByValue(locators[element], data);
     } else {
-        input.addValue(locators[element], data);
+        browser.setValue(locators[element], data);
     }
 })
 
